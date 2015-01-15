@@ -1,0 +1,44 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+#echo 0 > /proc/sys/kernel/sysrq
+#echo 4 > /sys/class/gpio/export
+#echo out > /sys/class/gpio/gpio4/direction
+#echo 0 > /sys/class/gpio/gpio4/value
+#echo 4 > /sys/class/gpio/unexport
+
+# My Projects
+/home/pi/projects/bin/start_z.sh
+
+# Print the IP address
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+#  printf "My IP address is %s\n" "$_IP"
+#fi
+ip_addr=`hostname -I`
+mdns_hostname=`avahi-resolve -a $ip_addr`
+echo "-"
+echo "Here is the table of the IP address and hostnames:"
+echo "$mdns_hostname\n"
+if [ -f /etc/init.d/ssh ]; then
+	status=`/etc/init.d/ssh status`
+	case "$status" in
+		*running*) echo "Connect ME using SSH."
+	esac
+fi
+echo "-\n\n"
+fi
+# My Projects
+#/home/pi/projects/bin/start_z.sh
+
+exit 0

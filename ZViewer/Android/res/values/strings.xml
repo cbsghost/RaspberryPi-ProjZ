@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ZViewer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">About</string>
+    <string name="title_activity_main">ZViewer</string>
+    <string name="live_stream_desc">Live Stream</string>
+    <string name="save_frame">Save Frame</string>
+    <string name="record_video">Record Video</string>
+    <string name="title_objtrack">Object Tracking</string>
+    <string name="title_snapshots">Snapshots</string>
+    <string name="button_ok">OK</string>
+    <string name="button_reset">Reset</string>
+    <string name="button_stop">Stop</string>
+    <string name="text_setobj">Set Object</string>
+    <string name="text_setobj_disabled">Object tracking is disabled.</string>
+    <string name="item_vmin">Vmin: </string>
+    <string name="item_vmax">Vmax: </string>
+    <string name="item_smin">Smin: </string>
+    <string name="mono_zero">000</string>
+
+</resources>

@@ -1,0 +1,411 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LayoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:orientation="vertical"
+    tools:context="com.urbanx.school.zviewer.MainActivity" >
+
+    <com.urbanx.school.zviewer.MjpegView
+        android:id="@+id/StreamView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:contentDescription="@string/live_stream_desc" />
+
+    <ImageView
+        android:id="@+id/StreamStill"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0"
+        android:contentDescription="@string/live_stream_desc"
+        android:scaleType="fitCenter" />
+
+    <LinearLayout
+        android:id="@+id/LayoutTitleObjTrack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#666"
+        android:clickable="true"
+        android:onClick="onClickTitleObjTrack"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/BannerObjTrack"
+            android:layout_width="match_parent"
+            android:layout_height="11dp"
+            android:contentDescription="@string/live_stream_desc"
+            android:duplicateParentState="true"
+            android:scaleType="center"
+            android:src="@android:drawable/arrow_up_float" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="31dp" >
+
+            <TextView
+                android:id="@+id/TitleObjTrack"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingEnd="7dp"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingStart="7dp"
+                android:text="@string/title_objtrack"
+                android:textColor="#ccc"
+                android:textColorLink="#ccc"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <Switch
+                android:id="@+id/SwitchObjTrack"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:checked="false"
+                android:paddingEnd="7dp"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingStart="7dp"
+                android:textColor="#ccc"
+                android:textColorLink="#ccc"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutObjTrack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#333" >
+
+            <TextView
+                android:id="@+id/TextButtonSetObj"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#333"
+                android:clickable="true"
+                android:gravity="center"
+                android:maxLines="1"
+                android:onClick="onClickSetObj"
+                android:paddingEnd="7dp"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingStart="7dp"
+                android:text="@string/text_setobj"
+                android:textColor="#bbb"
+                android:textColorLink="#ccc"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <TextView
+                android:id="@+id/TextButtonReset"
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
+                android:background="#533"
+                android:clickable="true"
+                android:gravity="center"
+                android:maxLines="1"
+                android:onClick="onClickReset"
+                android:paddingEnd="7dp"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingStart="7dp"
+                android:text="@string/button_reset"
+                android:textColor="#ccc"
+                android:textColorLink="#ccc"
+                android:textSize="17sp"
+                android:typeface="sans" />
+
+            <TextView
+                android:id="@+id/TextButtonOk"
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
+                android:background="#353"
+                android:clickable="true"
+                android:gravity="center"
+                android:maxLines="1"
+                android:onClick="onClickOk"
+                android:paddingEnd="7dp"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingStart="7dp"
+                android:text="@string/button_ok"
+                android:textColor="#ccc"
+                android:textColorLink="#ccc"
+                android:textSize="17sp"
+                android:typeface="sans" />
+
+        </LinearLayout>
+        
+			<LinearLayout
+			    android:id="@+id/LayoutObjTuning"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:background="#444"
+			    android:orientation="vertical" >
+            
+		        <LinearLayout
+		            android:layout_width="match_parent"
+		            android:layout_height="33dp" >
+		
+		            <TextView
+		                android:id="@+id/ItemVmin"
+		                android:layout_width="65dp"
+		                android:layout_height="match_parent"
+		                android:gravity="center_vertical"
+		                android:maxLines="1"
+		                android:paddingEnd="0dp"
+		                android:paddingLeft="7dp"
+		                android:paddingRight="0dp"
+		                android:paddingStart="7dp"
+		                android:text="@string/item_vmin"
+		                android:textColor="#bbb"
+		                android:textColorLink="#ccc"
+		                android:textSize="15sp"
+		                android:textStyle="bold"
+		                android:typeface="monospace" />
+		
+		            <SeekBar
+		                android:id="@+id/SeekBarVmin"
+		                android:layout_width="0dp"
+		                android:layout_height="match_parent"
+		                android:layout_weight="1" />
+		
+		            <TextView
+		                android:id="@+id/NumberVmin"
+		                android:layout_width="30dp"
+		                android:layout_height="match_parent"
+		                android:gravity="center"
+		                android:maxLines="1"
+		                android:paddingEnd="7dp"
+		                android:paddingLeft="0dp"
+		                android:paddingRight="7dp"
+		                android:paddingStart="0dp"
+		                android:text="@string/mono_zero"
+		                android:textColor="#999"
+		                android:textColorLink="#ccc"
+		                android:textSize="12sp"
+		                android:typeface="monospace" />
+		
+		        </LinearLayout>
+		
+		        <LinearLayout
+		            android:layout_width="match_parent"
+		            android:layout_height="33dp" >
+		
+		            <TextView
+		                android:id="@+id/ItemVmax"
+		                android:layout_width="65dp"
+		                android:layout_height="match_parent"
+		                android:gravity="center_vertical"
+		                android:maxLines="1"
+		                android:paddingEnd="0dp"
+		                android:paddingLeft="7dp"
+		                android:paddingRight="0dp"
+		                android:paddingStart="7dp"
+		                android:text="@string/item_vmax"
+		                android:textColor="#bbb"
+		                android:textColorLink="#ccc"
+		                android:textSize="15sp"
+		                android:textStyle="bold"
+		                android:typeface="monospace" />
+		
+		            <SeekBar
+		                android:id="@+id/SeekBarVmax"
+		                android:layout_width="0dp"
+		                android:layout_height="match_parent"
+		                android:layout_weight="1" />
+		
+		            <TextView
+		                android:id="@+id/NumberVmax"
+		                android:layout_width="30dp"
+		                android:layout_height="match_parent"
+		                android:gravity="center"
+		                android:maxLines="1"
+		                android:paddingEnd="7dp"
+		                android:paddingLeft="0dp"
+		                android:paddingRight="7dp"
+		                android:paddingStart="0dp"
+		                android:text="@string/mono_zero"
+		                android:textColor="#999"
+		                android:textColorLink="#ccc"
+		                android:textSize="12sp"
+		                android:typeface="monospace" />
+		
+		        </LinearLayout>
+		
+		        <LinearLayout
+		            android:layout_width="match_parent"
+		            android:layout_height="33dp" >
+		
+		            <TextView
+		                android:id="@+id/ItemSmin"
+		                android:layout_width="65dp"
+		                android:layout_height="match_parent"
+		                android:gravity="center_vertical"
+		                android:maxLines="1"
+		                android:paddingEnd="0dp"
+		                android:paddingLeft="7dp"
+		                android:paddingRight="0dp"
+		                android:paddingStart="7dp"
+		                android:text="@string/item_smin"
+		                android:textColor="#bbb"
+		                android:textColorLink="#ccc"
+		                android:textSize="15sp"
+		                android:textStyle="bold"
+		                android:typeface="monospace" />
+		
+		            <SeekBar
+		                android:id="@+id/SeekBarSmin"
+		                android:layout_width="0dp"
+		                android:layout_height="match_parent"
+		                android:layout_weight="1" />
+		
+		            <TextView
+		                android:id="@+id/NumberSmin"
+		                android:layout_width="30dp"
+		                android:layout_height="match_parent"
+		                android:gravity="center"
+		                android:maxLines="1"
+		                android:paddingEnd="7dp"
+		                android:paddingLeft="0dp"
+		                android:paddingRight="7dp"
+		                android:paddingStart="0dp"
+		                android:text="@string/mono_zero"
+		                android:textColor="#999"
+		                android:textColorLink="#ccc"
+		                android:textSize="12sp"
+		                android:typeface="monospace" />
+		
+		        </LinearLayout>
+	        
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutTitleSnapshots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#666"
+        android:clickable="true"
+        android:onClick="onClickTitleSnapshots"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/BannerSnapshots"
+            android:layout_width="match_parent"
+            android:layout_height="11dp"
+            android:contentDescription="@string/live_stream_desc"
+            android:scaleType="center"
+            android:src="@android:drawable/arrow_up_float" />
+
+        <TextView
+            android:id="@+id/TitleSnapshots"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:gravity="center_vertical"
+            android:paddingEnd="7dp"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingStart="7dp"
+            android:text="@string/title_snapshots"
+            android:textColor="#ccc"
+            android:textColorLink="#ccc"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutSnapshots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/TextButtonSaveFrame"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#333"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="onClickSaveFrame"
+            android:paddingEnd="7dp"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingStart="7dp"
+            android:text="@string/save_frame"
+            android:textColor="#bbb"
+            android:textColorLink="#ccc"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#333" >
+
+            <TextView
+                android:id="@+id/TextButtonRecVid"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#333"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClickStartRecord"
+                android:paddingEnd="7dp"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingStart="7dp"
+                android:text="@string/record_video"
+                android:textColor="#bbb"
+                android:textColorLink="#ccc"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <TextView
+                android:id="@+id/TextButtonStopRec"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:background="#533"
+                android:clickable="true"
+                android:gravity="center"
+                android:maxLines="1"
+                android:onClick="onClickStopRecord"
+                android:paddingEnd="7dp"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingStart="7dp"
+                android:text="@string/button_stop"
+                android:textColor="#ccc"
+                android:textColorLink="#ccc"
+                android:textSize="17sp"
+                android:typeface="sans" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
